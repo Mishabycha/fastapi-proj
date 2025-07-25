@@ -74,24 +74,32 @@ def get_current_user(token: str = Depends(oauth2_scheme), db: Session = Depends(
 def all_books(request: Request, db: Session = Depends(get_db), current_user: models.User = Depends(get_current_user)):
     '''Отримуємо всі книги'''
     books = crud.get_books(db)
-    return books
-    # return templates.TemplateResponse("all_books.html", context={"request": request, "books": books})
+    return templates.TemplateResponse("all_books.html", {"request": request, "books": books})
 
 @app.post("/books/create")
-def create_book(book: schemas.BookCreate, db: Session = Depends(get_db), current_user: models.User = Depends(get_current_user)):
+def create_book(request: Request, book: schemas.BookCreate, db: Session = Depends(get_db), current_user: models.User = Depends(get_current_user)):
     '''Створюємо книгу'''
-    return crud.create_book(db, book)
+    created_book = crud.create_book(db, book)
+    return templates.TemplateResponse("create_book.html", {"request": request, "book": created_book, "user": current_user})
 
 @app.post("/authors/create")
-def create_author(author: schemas.AuthorCreate, db: Session = Depends(get_db), current_user: models.User = Depends(get_current_user)):
+def create_author(request: Request, author: schemas.AuthorCreate, db: Session = Depends(get_db), current_user: models.User = Depends(get_current_user)):
     '''Створюємо автора'''
-    return crud.create_author(db, author)
+    created_author = crud.create_author(db, author)
+    return templates.TemplateResponse(
+        "create_author.html",
+        {
+            "request": request,
+            "author": created_author,
+            "user": current_user
+        }
+    )
 
 @app.get("/authors")
 def all_authors(request: Request, db: Session = Depends(get_db), current_user: models.User = Depends(get_current_user)):
     '''Отримуємо всіх авторів'''
     authors = crud.get_authors(db)
-    return authors
+    return templates.TemplateResponse("all_authors.html", {"request": request, "authors": authors})
 
 @app.delete("/books/delete/{book_id}")
 def delete_book(book_id: int, db: Session = Depends(get_db), current_user: models.User = Depends(get_current_user)):

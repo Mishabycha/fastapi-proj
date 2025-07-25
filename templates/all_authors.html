@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}Автори{% endblock %}
+
+{% block content %}
+<a href="/authors/create" class="btn">➕ Додати автора</a>
+<h2>Список авторів</h2>
+
+<ul class="author-list">
+    {% for author in authors %}
+    <li>
+        <strong>{{ author.first_name }}</strong> — {{ author.last_name }}
+    </li>
+    {% endfor %}
+</ul>
+
+{% if not authors %}
+<p>Авторів поки немає.</p>
+{% endif %}
+
+{% endblock %}

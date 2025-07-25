@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}Всі Книги{% endblock %}
+
+{% block content %}
+<a href="/books/create" class="btn">➕ Додати книгу</a>
+<h2>Список книг</h2>
+<div class="card-container">
+    {% for book in books %}
+    <div class="card">
+        <h3>{{ book.title }}</h3>
+        <p><strong>Опис:</strong> {{ book.description }}</p>
+        <p><strong>Автор ID:</strong> {{ book.author_id }}</p>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

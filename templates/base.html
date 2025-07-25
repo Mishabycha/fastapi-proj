@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Моя Бібліотека{% endblock %}</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <header>
+        <h1>📚 Моя Бібліотека</h1>
+        <nav>
+            <a href="/books">Книги</a>
+            <a href="/authors">Автори</a>
+        </nav>
+    </header>
+    
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Моя Бібліотека</p>
+    </footer>
+</body>
+</html>

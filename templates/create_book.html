@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Book</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+    <div class="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
+        <h1 class="text-2xl font-bold mb-4">Create a New Book</h1>
+        <form action="/create_book" method="POST" class="space-y-4">
+            <div>
+                <label for="name" class="block text-sm font-medium text-gray-700">Book Name</label>
+                <input type="text" id="name" name="name" maxlength="20" required
+                       class="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none Lahko se navršite ovaj kod kako biste kreirali HTML šablone za FastAPI krajnje tačke `/create_book` i `/create_author`?
+
+Pustite me da kreiram HTML šablone za FastAPI krajnje tačke `/create_book` i `/create_author`. Pretpostavljam da su ovo forme za kreiranje novih knjiga i autora na osnovu SQLAlchemy modela koje ste naveli. Šabloni će koristiti osnovni HTML sa Tailwind CSS-om za stilizaciju i pretpostavlja se da će ih FastAPI renderovati (npr. koristeći Jinja2).
+
+<xaiArtifact artifact_id="97c858e0-2f1d-46d0-a13a-a01192900760" artifact_version_id="74c59efe-6db4-4ac4-93ad-a44e8a4f608c" title="create_book.html" contentType="text/html">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Book</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+    <div class="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
+        <h1 class="text-2xl font-bold mb-4">Create a New Book</h1>
+        <form action="/create_book" method="POST" class="space-y-4">
+            <div>
+                <label for="name" class="block text-sm font-medium text-gray-700">Book Name</label>
+                <input type="text" id="name" name="name" maxlength="20" required
+                       class="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+            </div>
+            <div>
+                <label for="description" class="block text-sm font-medium text-gray-700">Description</label>
+                <textarea id="description" name="description" maxlength="255" rows="4"
+                          class="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+            </div>
+            <div>
+                <label for="pages" class="block text-sm font-medium text-gray-700">Pages</label>
+                <input type="number" id="pages" name="pages" required
+                       class="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+            </div>
+            <div>
+                <label for="img" class="block text-sm font-medium text-gray-700">Image URL (optional)</label>
+                <input type="url" id="img" name="img"
+                       class="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+            </div>
+            <div>
+                <label for="author_id" class="block text-sm font-medium text-gray-700">Author ID</label>
+                <input type="number" id="author_id" name="author_id" required
+                       class="mt-1 block w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+            </div>
+            <button type="submit"
+                    class="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                Create Book
+            </button>
+        </form>
+    </div>
+</body>
+</html>
